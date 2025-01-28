@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>🌟 Birthday Queen Magazine 🌟</title>
+    <style>
+        body {
+            background: linear-gradient(45deg, #1a1a1a, #4a1a4a);
+            color: #fff;
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 20px;
+            min-height: 100vh;
+            transition: background 0.5s;
+        }
+
+        .magazine {
+            max-width: 800px;
+            margin: 0 auto;
+            border: 3px solid gold;
+            border-radius: 20px;
+            padding: 30px;
+            background: rgba(0,0,0,0.7);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .sparkles {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+        }
+
+        h1 {
+            text-align: center;
+            font-size: 3em;
+            color: #ff69b4;
+            text-shadow: 0 0 20px #ff1493;
+            margin: 20px 0;
+            animation: float 3s ease-in-out infinite;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            padding: 20px;
+        }
+
+        .card {
+            background: rgba(255,255,255,0.1);
+            padding: 20px;
+            border-radius: 15px;
+            text-align: center;
+            backdrop-filter: blur(5px);
+            transition: transform 0.3s;
+        }
+
+        .card:hover {
+            transform: scale(1.05);
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        .emoji-xl {
+            font-size: 3em;
+            margin: 10px 0;
+        }
+
+        .confetti {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 999;
+        }
+
+        /* Journey Page Styles */
+        .journey-section {
+            display: none;
+            padding: 20px;
+            margin-top: 30px;
+        }
+
+        .journey-active .magazine {
+            display: none;
+        }
+
+        .journey-active {
+            background: linear-gradient(45deg, #ff69b4, #ff1493, #ffd700);
+        }
+
+        .timeline {
+            display: flex;
+            justify-content: center;
+            position: relative;
+            padding: 80px 0;
+            overflow-x: auto;
+        }
+
+        .journey-step {
+            min-width: 250px;
+            text-align: center;
+            margin: 0 50px;
+            position: relative;
+            flex-shrink: 0;
+        }
+
+        .journey-img {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            background-size: cover;
+            margin: 0 auto 20px;
+            border: 3px solid gold;
+            box-shadow: 0 0 30px #ff69b4;
+        }
+
+        .flight-path {
+            position: absolute;
+            top: 30%;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: gold;
+            animation: planeFly 8s linear infinite;
+        }
+
+        .flight-path::after {
+            content: '✈️';
+            position: absolute;
+            right: -30px;
+            top: -15px;
+            font-size: 1.5em;
+            animation: planeBounce 0.5s ease-in-out infinite alternate;
+        }
+
+        @keyframes planeFly {
+            0% { transform: translateX(-100%); }
+            100% { transform: translateX(100%); }
+        }
+
+        @keyframes planeBounce {
+            from { transform: translateY(-5px); }
+            to { transform: translateY(5px); }
+        }
+
+        .nav-button {
+            position: fixed;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 30px;
+            color: white;
+            font-weight: bold;
+            cursor: pointer;
+            z-index: 1000;
+            box-shadow: 0 0 20px #ff1493;
+            transition: transform 0.3s;
+        }
+
+        .view-journey-btn {
+            top: 20px;
+            right: 20px;
+            background: #ff69b4;
+        }
+
+        .home-btn {
+            top: 20px;
+            left: 20px;
+            background: #4a1a4a;
+            display: none;
+        }
+
+        .nav-button:hover {
+            transform: scale(1.1);
+        }
+
+        .page-title {
+            text-align: center;
+            font-size: 2.5em;
+            margin-bottom: 50px;
+            text-shadow: 0 0 20px gold;
+        }
+    </style>
+</head>
+<body>
+    <button class="nav-button view-journey-btn" onclick="showJourney()">Memory Journey ✈️</button>
+    <button class="nav-button home-btn" onclick="goHome()">Home 🏠</button>
+
+    <!-- Home Page -->
+    <div class="magazine">
+        <div class="sparkles">🎇</div>
+        
+        <h1>🎀Chinnari's Birthday Magazine! 🎀</h1>
+        
+        <div class="grid">
+            <div class="card">
+                <div class="emoji-xl">👑🌺💖</div>
+                <h3>World's Best Sister</h3>
+                <p>Kindness Ambassador<br>Family Heartbeat 💞<br>Joy Multiplier ✨</p>
+            </div>
+
+            <div class="card">
+                <div class="emoji-xl">🎨🎵📚</div>
+                <h3>Talents Unlimited</h3>
+                <p>Creative Genius 🖌️<br>Life DJ 🎧<br>Story Weaver 📖</p>
+            </div>
+
+            <div class="card">
+                <div class="emoji-xl">💪🌍🌟</div>
+                <h3>Super Powers</h3>
+                <p>Smile Lightning ⚡<br>Hug Therapy 🤗<br>Love Generator ❤️</p>
+            </div>
+        </div>
+
+        <div class="card" style="margin-top:20px;">
+            <div class="emoji-xl">🎂🎁🎉</div>
+            <h2>Today's Mission:</h2>
+            <p>Feel Loved → Get Spoiled → Eat Cake → Repeat! 🔁</p>
+            <div style="margin: 40px auto; max-width: 500px">
+                <h3>To Our Shining Star 🌟</h3>
+                <p>May your day sparkle as bright as you!<br>
+                We love you 3000! 💞</p>
+                <div class="emoji-xl">🫂🎉🥳</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Journey Page -->
+    <div class="journey-section">
+        <h2 class="page-title">🌟 Life Journey of Our Star 🌟</h2>
+        <div class="timeline">
+            <div class="flight-path"></div>
+            
+            <div class="journey-step">
+                <div class="journey-img" style="background-image: url('https://lh3.googleusercontent.com/pw/AP1GczPv0Mf33AWelo_u2c5AddHJdehYEXJ2yLecdVwjj03aKOAWT3Ea5b4xlwNUdF3SP9F202I0-BAhVykeOA6rzJC8-CJOsss4r3bkDhBi7fCU9cGVCUkztCww5lFVl7OO0k0m1ObSDGshra9gZ08M1ju_=w998-h1330-s-no-gm?authuser=0')"></div>
+                <h3>2007 🌟</h3>
+                <p>Our Shining Star Arrived!</p>
+                <div class="emoji-xl">👶🎀</div>
+            </div>
+            
+            <div class="journey-step">
+                <div class="journey-img" style="background-image: url('https://lh3.googleusercontent.com/pw/AP1GczMbGBUrt-fLsbP55PZN848x-5yBO-DlL5NSIra1ds07NVmb28dynS3jtgm8_ysZ-tctN4s2Zb9RrFX-veLGTHltk3v4BYoi7K0ewUWNNQTlKdMBq2OBfpANei30qQh1zKKXskc8xsW72MUsFtnskAHj=w998-h1330-s-no-gm?authuser=0')"></div>
+                <h3>2009🎓</h3>
+                <p>Toddler Superstar</p>
+                <div class="emoji-xl">📚🏆</div>
+            </div>
+            
+            <div class="journey-step">
+                <div class="journey-img" style="background-image: url('https://lh3.googleusercontent.com/pw/AP1GczOpjq6DN8FKVWR5FvMyySFsT-9oJOmYQLyWUnHWZcULGW4g-sbwocHgRhKoui0bQwP9m6pMkSj3A7w9I8zU6Es6dOpgXI909MzqncQKDjMiR88hOaHG2uXtIgAA3otdaYvWKiXpVQwVOSRl-AOfw1t_=w998-h1330-s-no-gm?authuser=0')"></div>
+                <h3>2022 🎉</h3>
+                <p>Teenage Queen</p>
+                <div class="emoji-xl">🎓✨</div>
+            </div>
+            
+            <div class="journey-step">
+                <div class="journey-img" style="background-image: url('https://lh3.googleusercontent.com/pw/AP1GczPA2zz-FdwpFRSqAzaKDLCsYYdh9DcW1B6FJdkdlB5zNY2sNO4ZUBybjRs0dg1R2rb8Lpf4yR66o1QTbcTQX8_jl__BlDzDm_f26Y7-EItdoR5mrnYUEhKBSO67IwTahF1A9xphycvW57kmL-cafNol=w998-h1330-s-no-gm?authuser=0')"></div>
+                <h3>2025 🥳</h3>
+                <p>Birthday Diva!</p>
+                <div class="emoji-xl">🎂👑</div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.4.0/dist/confetti.browser.min.js"></script>
+    <script>
+        function showJourney() {
+            document.body.classList.add('journey-active');
+            document.querySelector('.journey-section').style.display = 'block';
+            document.querySelector('.home-btn').style.display = 'block';
+            document.querySelector('.view-journey-btn').style.display = 'none';
+            shootConfetti();
+        }
+
+        function goHome() {
+            document.body.classList.remove('journey-active');
+            document.querySelector('.journey-section').style.display = 'none';
+            document.querySelector('.home-btn').style.display = 'none';
+            document.querySelector('.view-journey-btn').style.display = 'block';
+            shootConfetti();
+        }
+
+        function shootConfetti() {
+            var count = 200;
+            var defaults = { origin: { y: 0.7 } };
+
+            function fire(particleRatio, opts) {
+                confetti(Object.assign({}, defaults, opts, {
+                    particleCount: Math.floor(count * particleRatio)
+                }));
+            }
+
+            fire(0.25, { spread: 26, startVelocity: 55 });
+            fire(0.2, { spread: 60 });
+            fire(0.35, { spread: 100, decay: 0.91, scalar: 0.8 });
+            fire(0.1, { spread: 120, startVelocity: 25, decay: 0.92, scalar: 1.2 });
+            fire(0.1, { spread: 120, startVelocity: 45 });
+        }
+
+        setInterval(shootConfetti, 10000);
+    </script>
+</body>
+</html>
